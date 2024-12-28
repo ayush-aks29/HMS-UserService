@@ -38,6 +38,16 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
+    @PutMapping("/update/{userId}")
+    public ResponseEntity<User> updateUser(@PathVariable String userId, @RequestBody User user) {
+        User updatedUser = userService.updateUser(userId, user);
+        return ResponseEntity.ok(updatedUser);
+    }
 
+    @DeleteMapping("/delete/{userId}")
+    public ResponseEntity<User> deleteUser(@PathVariable String userId) {
+        User deletedUser = userService.deleteUser(userId);
+        return ResponseEntity.ok(deletedUser);
+    }
 
 }
